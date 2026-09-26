@@ -147,3 +147,27 @@ function modifierCandidat() {
     console.log("Candidat modifié avec succès !")
 
 }
+
+function supprimerCandidat() {
+
+        let cin = prompt("Entrez la CIN du candidat à supprimer : ");
+
+    let candidat = candidats.find(c => c.cin === cin);
+
+    if (!candidat) {
+        console.log("Candidat non trouvé.");
+        return;
+    }
+
+    candidats = candidats.filter(c => c.cin !== cin);
+
+    console.log("Candidat supprimé avec succès !");
+
+
+}
+ 
+function rechercherCandidat() {
+
+
+
+}
