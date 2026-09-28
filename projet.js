@@ -4,10 +4,11 @@ let candidats = [];
 
 
     console.log(`
+
 ========================================
  GESTION DES ÉLECTIONS - MENU PRINCIPAL
-========================================
-<1. Ajouter un nouveau candidat
+==============================================
+<1. Ajouter un nouveau candidat              
 <2. Ajouter plusieurs candidats à la fois
 <3. Afficher la liste des candidats
 <4. Voter pour un candidat
@@ -16,7 +17,7 @@ let candidats = [];
 <7. Rechercher un candidat par nom
 <8>. Afficher les statistiques de l'élection
 <9. Quitter
-========================================`);
+==============================================`);
 
 
 
@@ -168,6 +169,37 @@ function supprimerCandidat() {
  
 function rechercherCandidat() {
 
+    let nom = prompt("entrez nom candidat :");
+
+    let candidat = candidats.find( c => c.nom.toLowerCase() === nom.toLowerCase());
+
+    if (!candidat) {
+
+        console.log("candidat non trouve.");
+        return;
+    }
+
+    console.log("candidat trouve.");
+    console.log(candidat);
+
+
+}
+
+function afficherStatistiques() {
+
+    if (candidats.lingth === 0) {
+        console.log("aucun candidat.");
+        return;
+
+    }
+
+    for (let candidat of candidats) {
+
+        console.log(
+            candidat.nom +""+ candidat.prenom +
+            ":" + candidat.electeurs.length + "vote"
+        );
+    }
 
 
 }
