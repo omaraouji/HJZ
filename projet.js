@@ -112,6 +112,12 @@ function ajouterPlusieursCandidats() {
     }
 }
 function afficherListeCandidats() {
+
+    if (candidats.length === 0) {
+        console.log("Aucun candidat.");
+        return;
+    }
+
     for (let candidat of candidats) {
         console.log("CIN :", candidat.cin);
         console.log("Nom :", candidat.nom);
@@ -207,19 +213,33 @@ function rechercherCandidat() {
 
 function afficherStatistiques() {
 
-    if (candidats.lingth === 0) {
-        console.log("aucun candidat.");
-        return;
+    console.log("Nombre total de candidats : " + candidats.length);
 
+    let totalVotes = 0;
+
+    for (let i = 0 ; i < candidats.length ; i++) {
+    totalVotes = totalVotes + candidats[i].electeurs.length;
     }
 
-    for (let candidat of candidats) {
+    console.log("Nombre total de votes : " + totalVotes);
 
-        console.log(
-            candidat.nom +""+ candidat.prenom +
-            ":" + candidat.electeurs.length + "vote"
-        );
-    }
+        candidats.sort((a,b) => b.electeurs.length - a.electeurs.length);
 
+        console.log("==============");
+        console.log("top 3 candidats ");
 
+        let nombre = 3
+
+        if ( nombre > candidats.length) {
+            nombre = candidats.length
+        }
+
+        for (let i = 0 ; i < nombre ; i++){
+
+            console.log(
+                (i + 1) + ". "+ candidats[i].nom + " " +
+                candidats[i].prenom + " - " +
+                candidats[i].electeurs.length + "votes"
+            );
+        }
 }
