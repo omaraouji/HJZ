@@ -1,6 +1,26 @@
 const prompt = require('prompt-sync')();
 
-let candidats = [];
+let candidats = [
+
+    {
+        cin: "HH1111",
+        nom: "boushaba",
+        prenom: "soufiane",
+        partiPolitique: "independant",
+        age: 40,
+        electeurs: []
+
+    },
+
+    {
+        cin: "HH2222",
+        nom:"ouahbi",
+        prenom: "abdellatif",
+        partiPolitique:"pam",
+        age: 61,
+        electeurs:[]
+    }
+];
 
 
     console.log(`
